@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: #d6f5eb;
+}
+
+.icon-circle {
+    width:10em;
+    height:10em;
+}
+
+
+.login-card-width {
+    width: 35em;
+    height: 38em;
+}
+
+.border-gray {
+    border-color: rgba(0,0,0,.180);
+}
