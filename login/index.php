@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">                                                                                                                                                                    
-    <head>
-        <meta charset="utf-8">
-        <title>SimpleMemo | ログイン</title>
-        <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="../public/css/main.css" />
-        <script defer src="../public/js/all.js"></script>
-    </head>
+    <?php
+        include_once "../common/header.php";
+        echo getHeader("ログイン");
+    ?>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
             <form method="post" action="../memo">
