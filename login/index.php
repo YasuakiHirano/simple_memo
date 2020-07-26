@@ -5,6 +5,7 @@
         <title>SimpleMemo | ログイン</title>
         <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="../public/css/main.css" />
+        <script defer src="../public/js/all.js"></script>
     </head>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
@@ -19,11 +20,17 @@
                         </div>
                         <div class="row mt-3">
                             <div class="offset-2 col-8 offset-2">
-                                <label class="w-100">
-                                    <input type="text" name="user_email" class="form-control w-100" placeholder="メールアドレス" autocomplete="off" />
+                                <label class="input-group w-100">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                    </span>
+                                    <input type="text" name="user_email" class="form-control" placeholder="メールアドレス" autocomplete="off" />
                                 </label>
-                                <label class="w-100">
-                                    <input type="password" name="user_password" class="form-control w-100" placeholder="パスワード" autocomplete="off" />
+                                <label class="input-group w-100">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </span>
+                                    <input type="password" name="user_password" class="form-control" placeholder="パスワード" autocomplete="off" />
                                 </label>
                                 <button type="submit" class="form-control btn btn-success">
                                    ログイン
