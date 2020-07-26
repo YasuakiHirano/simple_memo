@@ -63,6 +63,7 @@
                             xxxさん、こんにちは。
                         </div>
                         <div class="pr-1">
+                            <button type="button" class="btn btn-success"><i class="fas fa-plus"></i></button>
                             <a href="../login" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </div>
