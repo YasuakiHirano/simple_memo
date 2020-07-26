@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
-            <form method="post" action="">
+            <form method="post" action="../memo">
                 <div class="card rounded login-card-width shadow">
                     <div class="card-body">
                         <div class="rounded-circle mx-auto border-gray border d-flex mt-3 icon-circle">
@@ -20,12 +20,12 @@
                         <div class="row mt-3">
                             <div class="offset-2 col-8 offset-2">
                                 <label class="w-100">
-                                    <input type="text" name="user_email" class="form-control w-100" placeholder="メールアドレスを入力" autocomplete="off" />
+                                    <input type="text" name="user_email" class="form-control w-100" placeholder="メールアドレス" autocomplete="off" />
                                 </label>
                                 <label class="w-100">
-                                    <input type="password" name="user_password" class="form-control w-100" placeholder="パスワードを入力" autocomplete="off" />
+                                    <input type="password" name="user_password" class="form-control w-100" placeholder="パスワード" autocomplete="off" />
                                 </label>
-                                <button type="button" class="form-control btn btn-success">
+                                <button type="submit" class="form-control btn btn-success">
                                    ログイン
                                 </button>
                             </div>

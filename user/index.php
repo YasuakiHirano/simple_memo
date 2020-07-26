@@ -20,10 +20,13 @@
                         <div class="row mt-3">
                             <div class="offset-2 col-8 offset-2">
                                 <label class="w-100">
-                                    <input type="text" name="user_email" class="form-control w-100" placeholder="メールアドレスを入力" autocomplete="off" />
+                                    <input type="text" name="user_name" class="form-control w-100" placeholder="ユーザー名" autocomplete="off" />
                                 </label>
                                 <label class="w-100">
-                                    <input type="password" name="user_password" class="form-control w-100" placeholder="パスワードを入力" autocomplete="off" />
+                                    <input type="text" name="user_email" class="form-control w-100" placeholder="メールアドレス" autocomplete="off" />
+                                </label>
+                                <label class="w-100">
+                                    <input type="password" name="user_password" class="form-control w-100" placeholder="パスワード" autocomplete="off" />
                                 </label>
                                 <button type="submit" class="form-control btn btn-success">
                                    登録する
