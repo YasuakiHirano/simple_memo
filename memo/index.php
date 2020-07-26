@@ -5,13 +5,27 @@
         <title>SimpleMemo | メモ</title>
         <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="../public/css/main.css" />
+        <script defer src="../public/js/all.js"></script>
         <style>
-            input, textarea {
+            input{
                 background: none;
                 border: none;
                 outline: none;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            textarea {
+                background: none;
+                border: none;
+                outline: none;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                box-sizing: border-box;
+            }
+
+            input {
                 white-space: nowrap;
             }
 
@@ -21,14 +35,22 @@
                 margin: 0;
             }
 
+            #memo-menu {
+                height: 3%;
+                font-size: 1.8em;
+                text-align: right;
+            }
+
             #memo-title {
-                height: 2em;
+                height: 9%;
                 font-size: 1.8em;
             }
 
             #memo-content {
-                height: 100%;
+                height: 87%;
                 font-size: 1.2em;
+                resize: none;
+                overflow-y: auto;
             }
         </style>
     </head>
@@ -36,7 +58,15 @@
         <div class="bg-white h-100 rounded shadow">
             <div class="row h-100 m-0 p-0">
                 <div class="col-3 h-100 m-0 p-0 border-left border-right border-gray">
-                    <div class="h3 pl-4 pt-3">
+                    <div class="d-flex justify-content-between pt-1">
+                        <div class="pl-3 pt-2">
+                            xxxさん、こんにちは。
+                        </div>
+                        <div class="pr-1">
+                            <a href="../login" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="h3 pl-3 pt-3">
                         Memoリスト
                     </div>
                     <div class="list-group-flush p-0 ">
@@ -46,6 +76,10 @@
                     </div>
                 </div>
                 <div class="col-9 h-100">
+                    <div id="memo-menu">
+                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-success"><i class="fas fa-save"></i></button>
+                    </div>
                     <input type="text" id="memo-title" placeholder="タイトルを入力する..." />
                     <textarea id="memo-content" placeholder="内容を入力する..."></textarea>
                 </div>
