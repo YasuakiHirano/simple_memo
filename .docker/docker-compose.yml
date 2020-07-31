@@ -8,16 +8,16 @@ services:
     volumes:
       - ./nginx/server.conf:/etc/nginx/conf.d/default.conf
       - ../:/var/www/html
-    depends_on:
-      - php
+    networks:
+      - memo_network
 
   php:
     build: ./php
     container_name: php_simple_memo_php
     volumes:
       - ../:/var/www/html
-    depends_on:
-      - db
+    networks:
+      - memo_network
 
   db:
     image: mysql:5.7
@@ -26,4 +26,8 @@ services:
       - 13306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
+    networks:
+      - memo_network
 
+networks:
+  memo_network:
