@@ -13,12 +13,13 @@
                 <div class="card rounded login-card-width shadow">
                     <div class="card-body">
                         <?php
-                        if ($_SESSION['errors']) {
+                        if (isset($_SESSION['errors'])) {
                             echo '<div class="alert alert-danger" role="alert">';
                             foreach ($_SESSION['errors'] as $error) {
                                 echo "<div>{$error}</div>";
                             }
                             echo '</div>';
+                            unset($_SESSION['errors']);
                         }
                         ?>
                         <div class="rounded-circle mx-auto border-gray border d-flex mt-3 icon-circle">
