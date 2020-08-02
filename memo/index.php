@@ -1,3 +1,13 @@
+<?php
+    require '../common/auth.php';
+
+    if (!isLogin()) {
+        header('Location: ../login/');
+        exit;
+    }
+
+    $user_name = getLoginUserName();
+?>
 <!DOCTYPE html>
 <html lang="ja">                                                                                                                                                                    
     <?php
@@ -10,11 +20,11 @@
                 <div class="col-3 h-100 m-0 p-0 border-left border-right border-gray">
                     <div class="d-flex justify-content-between pt-1">
                         <div class="pl-3 pt-2">
-                            xxxさん、こんにちは。
+                            <?php echo $user_name; ?>さん、こんにちは。
                         </div>
                         <div class="pr-1">
                             <button type="button" class="btn btn-success"><i class="fas fa-plus"></i></button>
-                            <a href="../login" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i></a>
+                            <a href="./logout.php" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </div>
                     <div class="h3 pl-3 pt-3">

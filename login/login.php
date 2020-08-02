@@ -25,17 +25,19 @@
 
     // ログイン処理
     $database_handler = getDatabaseConnection();
-    if ($statement = $database_handler->prepare('SELECT name, password FROM users WHERE email = :user_email')) {
+    if ($statement = $database_handler->prepare('SELECT id, name, password FROM users WHERE email = :user_email')) {
 
         $statement->bindParam(':user_email', $user_email);
         $statement->execute();
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);
         $name = $user['name'];
+        $id = $user['id'];
 
         if (password_verify($user_password, $user['password'])) {
             $_SESSION['user'] = [
                 'name' => $name,
+                'id' => $id
             ];
             header('Location: ../memo/');
             exit;
