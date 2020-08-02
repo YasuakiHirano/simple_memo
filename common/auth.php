@@ -24,3 +24,19 @@
 
         return "";
     }
+
+    function getLoginUserId() {
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user']['id'];
+        }
+
+        return null;
+    }
+
+    function getLoginUser() {
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user'];
+        }
+
+        return [];
+    }
