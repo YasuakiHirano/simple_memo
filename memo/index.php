@@ -12,7 +12,7 @@
 
     $memos = [];
     $database_handler = getDatabaseConnection();
-    if ($statement = $database_handler->prepare("SELECT id, title, content, updated_at FROM memos WHERE user_id = :user_id order by updated_at desc")) {
+    if ($statement = $database_handler->prepare("SELECT id, title, content, updated_at FROM memos WHERE user_id = :user_id ORDER BY updated_at DESC")) {
         $statement->bindParam(':user_id', $user_id);
         $statement->execute();
 
@@ -56,7 +56,7 @@
                             <div class="pl-3 pt-3 h5 text-info">メモがありません。</div>
                         <?php endif; ?>
                         <?php foreach($memos as $memo): ?>
-                        <a href="#" class="list-group-item list-group-item-action <?php echo $edit_id == $memo['id'] ? 'active' : ''; ?>">
+                        <a href="./select.php?id=<?php echo $memo['id']; ?>" class="list-group-item list-group-item-action <?php echo $edit_id == $memo['id'] ? 'active' : ''; ?>">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1"><?php echo $memo["title"] ?></h5>
                                 <small><?php echo date('Y/m/d H:i', strtotime($memo['updated_at'])); ?></small>
