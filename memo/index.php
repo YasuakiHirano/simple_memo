@@ -39,7 +39,7 @@
         <div class="bg-white h-100 rounded shadow">
             <div class="row h-100 m-0 p-0">
                 <div class="col-3 h-100 m-0 p-0 border-left border-right border-gray">
-                    <div class="d-flex justify-content-between pt-1">
+                    <div class="left-memo-menu d-flex justify-content-between pt-1">
                         <div class="pl-3 pt-2">
                             <?php echo $user_name; ?>さん、こんにちは。
                         </div>
@@ -48,10 +48,10 @@
                             <a href="./logout.php" class="btn btn-dark"><i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </div>
-                    <div class="h3 pl-3 pt-3">
+                    <div class="left-memo-title h3 pl-3 pt-3">
                         メモリスト
                     </div>
-                    <div class="list-group-flush p-0 ">
+                    <div class="left-memo-list list-group-flush p-0 overflow-auto">
                         <?php if(empty($memos)): ?>
                             <div class="pl-3 pt-3 h5 text-info">メモがありません。</div>
                         <?php endif; ?>
@@ -76,12 +76,15 @@
                 </div>
                 <div class="col-9 h-100">
                     <?php if(isset($_SESSION['select_memo'])): ?>
-                        <div id="memo-menu">
-                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                            <button type="button" class="btn btn-success"><i class="fas fa-save"></i></button>
-                        </div>
-                        <input type="text" id="memo-title" placeholder="タイトルを入力する..." value="<?php echo $edit_title; ?>" />
-                        <textarea id="memo-content" placeholder="内容を入力する..."><?php echo $edit_content; ?></textarea>
+                        <form class="w-100 h-100" method="post">
+                            <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>" />
+                            <div id="memo-menu">
+                                <button type="submit" class="btn btn-danger" formaction="./delete.php"><i class="fas fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-success" formaction="./update.php"><i class="fas fa-save"></i></button>
+                            </div>
+                            <input type="text" id="memo-title" name="edit_title" placeholder="タイトルを入力する..." value="<?php echo $edit_title; ?>" />
+                            <textarea id="memo-content" name="edit_content" placeholder="内容を入力する..."><?php echo $edit_content; ?></textarea>
+                        </form>
                     <?php else: ?>
                         <div class="pt-3 h5 text-info">
                             メモを新規作成してください。
@@ -121,6 +124,7 @@
 
             #memo-menu {
                 height: 3%;
+                width: 100%;
                 font-size: 1.8em;
                 text-align: right;
             }
@@ -135,6 +139,18 @@
                 font-size: 1.2em;
                 resize: none;
                 overflow-y: auto;
+            }
+
+            .left-memo-menu {
+                height: 5%;
+            }
+
+            .left-memo-title {
+                height: 5%;
+            }
+
+            .left-memo-list {
+                height: 85%;
             }
         </style>
     </body>
