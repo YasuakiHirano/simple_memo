@@ -1,4 +1,5 @@
-html {
+/*--全体共通--*/
+ html {
     height: 100%;
 }
 
@@ -8,11 +9,11 @@ body {
     background: #d6f5eb;
 }
 
+/*--ログイン・ユーザー登録--*/
 .icon-circle {
     width:10em;
     height:10em;
 }
-
 
 .login-card-width {
     width: 35em;
@@ -21,4 +22,49 @@ body {
 
 .border-gray {
     border-color: rgba(0,0,0,.180);
+}
+
+/*--メモ投稿画面--*/
+#memo-title, #memo-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#memo-title {
+    white-space: nowrap;
+    height: 9%;
+    font-size: 1.8em;
+}
+
+#memo-content {
+    box-sizing: border-box;
+    height: 87%;
+    font-size: 1.2em;
+    resize: none;
+    overflow-y: auto;
+}
+
+#memo-menu {
+    height: 3%;
+    width: 100%;
+    font-size: 1.8em;
+    text-align: right;
+}
+
+.left-memo-menu {
+    height: 5%;
+}
+
+.left-memo-title {
+    height: 5%;
+}
+
+.left-memo-list {
+    height: 85%;
 }
