@@ -20,6 +20,19 @@ services:
     volumes:
       - ../:/var/www/html
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.0
+    container_name: php_simple_memo_phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    depends_on:
+      - db
+    ports:
+      - 8081:80
+
   db:
     image: mysql:5.7
     container_name: php_simple_memo_mysql
@@ -30,3 +43,4 @@ services:
       - ./mysql/log/:/var/log/
     environment:
       MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
