@@ -53,7 +53,9 @@
                     </div>
                     <div class="left-memo-list list-group-flush p-0 overflow-auto">
                         <?php if(empty($memos)): ?>
-                            <div class="pl-3 pt-3 h5 text-info">メモがありません。</div>
+                            <div class="pl-3 pt-3 h5 text-info text-center">
+                                <i class="far fa-surprise"></i>メモがありません。
+                            </div>
                         <?php endif; ?>
                         <?php foreach($memos as $memo): ?>
                         <a href="./select.php?id=<?php echo $memo['id']; ?>" class="list-group-item list-group-item-action <?php echo $edit_id == $memo['id'] ? 'active' : ''; ?>">
@@ -86,72 +88,15 @@
                             <textarea id="memo-content" name="edit_content" placeholder="内容を入力する..."><?php echo $edit_content; ?></textarea>
                         </form>
                     <?php else: ?>
-                        <div class="pt-3 h5 text-info">
-                            メモを新規作成してください。
+                        <div class="mt-3 alert alert-info">
+                            <i class="fas fa-info-circle"></i>メモを新規作成するか選択してください。
                         </div>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
         <style>
-            input{
-                background: none;
-                border: none;
-                outline: none;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
 
-            textarea {
-                background: none;
-                border: none;
-                outline: none;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                box-sizing: border-box;
-            }
-
-            input {
-                white-space: nowrap;
-            }
-
-            #memo-title, #memo-content {
-                width: 100%;
-                padding: 0;
-                margin: 0;
-            }
-
-            #memo-menu {
-                height: 3%;
-                width: 100%;
-                font-size: 1.8em;
-                text-align: right;
-            }
-
-            #memo-title {
-                height: 9%;
-                font-size: 1.8em;
-            }
-
-            #memo-content {
-                height: 87%;
-                font-size: 1.2em;
-                resize: none;
-                overflow-y: auto;
-            }
-
-            .left-memo-menu {
-                height: 5%;
-            }
-
-            .left-memo-title {
-                height: 5%;
-            }
-
-            .left-memo-list {
-                height: 85%;
-            }
         </style>
     </body>
 </html>
