@@ -14,26 +14,32 @@
     $user_id = getLoginUserId();
 
     $database_handler = getDatabaseConnection();
-    if ($statement = $database_handler->prepare("UPDATE memos SET title = :title, content = :content, updated_at = NOW() WHERE id = :edit_id AND user_id = :user_id")) {
-        $statement->bindParam(":title", $edit_title);
-        $statement->bindParam(":content", $edit_content);
-        $statement->bindParam(":edit_id", $edit_id);
-        $statement->bindParam(":user_id", $user_id);
-        $statement->execute();
-    }
 
-    if ($statement = $database_handler->prepare("SELECT id, title, content FROM memos WHERE id = :edit_id AND user_id = :user_id")) {
-        $statement->bindParam(":edit_id", $edit_id);
-        $statement->bindParam(":user_id", $user_id);
-        $statement->execute();
+    try {
+        if ($statement = $database_handler->prepare("UPDATE memos SET title = :title, content = :content, updated_at = NOW() WHERE id = :edit_id AND user_id = :user_id")) {
+            $statement->bindParam(":title", $edit_title);
+            $statement->bindParam(":content", $edit_content);
+            $statement->bindParam(":edit_id", $edit_id);
+            $statement->bindParam(":user_id", $user_id);
+            $statement->execute();
+        }
 
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['select_memo'] = [
-            'id' => $result['id'],
-            'title' => $result['title'],
-            'content' => $result['content'],
-        ];
-        $statement->execute();
+        if ($statement = $database_handler->prepare("SELECT id, title, content FROM memos WHERE id = :edit_id AND user_id = :user_id")) {
+            $statement->bindParam(":edit_id", $edit_id);
+            $statement->bindParam(":user_id", $user_id);
+            $statement->execute();
+
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['select_memo'] = [
+                'id' => $result['id'],
+                'title' => $result['title'],
+                'content' => $result['content'],
+            ];
+            $statement->execute();
+        }
+    }  catch (Throwable $e) {
+        echo $e->getMessage();
+        exit;
     }
 
     header('Location: ../memo');

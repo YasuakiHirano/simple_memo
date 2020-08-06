@@ -29,15 +29,25 @@
     // DB接続処理
     $database_handler = getDatabaseConnection();
 
-    // インサートSQLを作成して実行
-    if ($statement = $database_handler->prepare('INSERT INTO users (name, email, password) values(:name, :email, :password)'))
-    {
-        $password = password_hash($user_password, PASSWORD_DEFAULT);
+    try {
+        // インサートSQLを作成して実行
+        if ($statement = $database_handler->prepare('INSERT INTO users (name, email, password) values(:name, :email, :password)')) {
+            $password = password_hash($user_password, PASSWORD_DEFAULT);
 
-        $statement->bindParam(':name', $user_name);
-        $statement->bindParam(':email', $user_email);
-        $statement->bindParam(':password', $password);
-        $statement->execute();
+            $statement->bindParam(':name', $user_name);
+            $statement->bindParam(':email', $user_email);
+            $statement->bindParam(':password', $password);
+            $statement->execute();
+        }
+
+        // ユーザー情報保持
+        $_SESSION['user'] = [
+            'name' => $user_name,
+            'id' => $database_handler->lastInsertId()
+        ];
+    } catch (Throwable $e) {
+        echo $e->getMessage();
+        exit;
     }
 
     // メモ投稿画面にリダイレクト
