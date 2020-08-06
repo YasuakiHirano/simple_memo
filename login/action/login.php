@@ -16,10 +16,17 @@
 
     // - 文字数チェック
     stringMaxSizeCheck($_SESSION['errors'], $user_email, "メールアドレスは255文字以内で入力してください。");
-    stringMaxSizeCheck($_SESSION['errors'], $user_password, "パスワードが空は255文字以内で入力してください。");
+    stringMaxSizeCheck($_SESSION['errors'], $user_password, "パスワードは255文字以内で入力してください。");
+    stringMaxSizeCheck($_SESSION['errors'], $user_password, "パスワードは255文字以内で入力してください。");
+    stringMinSizeCheck($_SESSION['errors'], $user_password, "パスワードは8文字以上で入力してください。");
 
-    // - メールアドレスチェック
-    mailAddressCheck($_SESSION['errors'], $user_email, "正しいメールアドレスを入力してください。");
+    if(!$_SESSION['errors']) {
+        // - メールアドレスチェック
+        mailAddressCheck($_SESSION['errors'], $user_email, "正しいメールアドレスを入力してください。");
+
+        // - パスワード半角英数チェック
+        halfAlphanumericCheck($_SESSION['errors'], $user_password, "パスワードは半角英数字で入力してください。");
+    }
 
     if($_SESSION['errors']) {
         header('Location: ../../login/');

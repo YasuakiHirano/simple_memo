@@ -17,8 +17,8 @@
 
     try {
         if ($statement = $database_handler->prepare("UPDATE memos SET title = :title, content = :content, updated_at = NOW() WHERE id = :edit_id AND user_id = :user_id")) {
-            $statement->bindParam(":title", $edit_title);
-            $statement->bindParam(":content", $edit_content);
+            $statement->bindParam(":title", htmlspecialchars($edit_title));
+            $statement->bindParam(":content", htmlspecialchars($edit_content));
             $statement->bindParam(":edit_id", $edit_id);
             $statement->bindParam(":user_id", $user_id);
             $statement->execute();

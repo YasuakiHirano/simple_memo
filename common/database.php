@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * PDOを使ってデータベースに接続する
+ * @return PDO
+ */
 function getDatabaseConnection() {
     try
     {
