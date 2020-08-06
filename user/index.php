@@ -15,7 +15,7 @@
     ?>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
-            <form method="post" action="register.php">
+            <form method="post" action="./action/register.php">
                 <div class="card rounded login-card-width shadow">
                     <div class="card-body">
                         <?php

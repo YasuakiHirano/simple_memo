@@ -8,14 +8,14 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="ja">                                                                                                                                                                    
+<html lang="ja">
     <?php
         include_once "../common/header.php";
         echo getHeader("ログイン");
     ?>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
-            <form method="post" action="./login.php">
+            <form method="post" action="./action/login.php">
                 <div class="card rounded login-card-width shadow">
                     <div class="card-body">
                         <?php

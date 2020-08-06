@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require '../common/validation.php';
-    require '../common/database.php';
+    require '../../common/validation.php';
+    require '../../common/database.php';
 
     // パラメータ取得
     $user_name = $_POST['user_name'];
@@ -21,8 +21,11 @@
     stringMaxSizeCheck($_SESSION['errors'], $user_email, "メールアドレスは255文字以内で入力してください。");
     stringMaxSizeCheck($_SESSION['errors'], $user_password, "パスワードが空は255文字以内で入力してください。");
 
+    // - メールアドレスチェック
+    mailAddressCheck($_SESSION['errors'], $user_email, "正しいメールアドレスを入力してください。");
+
     if($_SESSION['errors']) {
-        header('Location: ../user/');
+        header('Location: ../../user/');
         exit;
     }
 
@@ -51,5 +54,5 @@
     }
 
     // メモ投稿画面にリダイレクト
-    header('Location: ../memo/');
+    header('Location: ../../memo/');
     exit;

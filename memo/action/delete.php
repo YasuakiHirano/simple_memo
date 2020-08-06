@@ -1,6 +1,6 @@
 <?php
-    require '../common/auth.php';
-    require '../common/database.php';
+    require '../../common/auth.php';
+    require '../../common/database.php';
 
     if (!isLogin()) {
         header('Location: ../login/');
@@ -25,5 +25,5 @@
 
     unset($_SESSION['select_memo']);
 
-    header('Location: ../memo');
+    header('Location: ../../memo');
     exit;

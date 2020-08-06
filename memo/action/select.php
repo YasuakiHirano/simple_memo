@@ -1,6 +1,6 @@
 <?php
-    require '../common/auth.php';
-    require '../common/database.php';
+    require '../../common/auth.php';
+    require '../../common/database.php';
 
     if (!isLogin()) {
         header('Location: ../login/');
@@ -23,5 +23,5 @@
         'title' => $result['title'],
         'content' => $result['content']
     ];
-    header('Location: ../memo/');
+    header('Location: ../../memo/');
     exit;

@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require '../common/validation.php';
-    require '../common/database.php';
+    require '../../common/validation.php';
+    require '../../common/database.php';
 
     // パラメータ取得
     $user_email = $_POST['user_email'];
@@ -18,8 +18,11 @@
     stringMaxSizeCheck($_SESSION['errors'], $user_email, "メールアドレスは255文字以内で入力してください。");
     stringMaxSizeCheck($_SESSION['errors'], $user_password, "パスワードが空は255文字以内で入力してください。");
 
+    // - メールアドレスチェック
+    mailAddressCheck($_SESSION['errors'], $user_email, "正しいメールアドレスを入力してください。");
+
     if($_SESSION['errors']) {
-        header('Location: ../login/');
+        header('Location: ../../login/');
         exit;
     }
 
@@ -56,13 +59,13 @@
                 }
             }
 
-            header('Location: ../memo/');
+            header('Location: ../../memo/');
             exit;
         } else {
             $_SESSION['errors'] = [
                 'メールアドレスまたはパスワードが間違っています。'
             ];
-            header('Location: ../login/');
+            header('Location: ../../login/');
             exit;
         }
     }
