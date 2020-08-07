@@ -41,6 +41,14 @@
         $statement->execute();
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);
+        if (!$user) {
+            $_SESSION['errors'] = [
+                'メールアドレスまたはパスワードが間違っています。'
+            ];
+            header('Location: ../../login/');
+            exit;
+        }
+
         $name = $user['name'];
         $id = $user['id'];
 

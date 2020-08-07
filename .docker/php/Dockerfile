@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
    libkrb5-dev
 
 RUN rm -r /var/lib/apt/lists/*
+RUN mkdir /var/log/php/
 
 RUN PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install zip pdo_mysql mysqli mbstring imap

@@ -19,6 +19,7 @@ services:
       - db
     volumes:
       - ../:/var/www/html
+      - ./php/log/:/var/log/php/
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.0.0
@@ -39,8 +40,9 @@ services:
     ports:
       - 13306:3306
     volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/log/:/var/log/mysql
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./mysql/log/:/var/log/
     environment:
       MYSQL_ROOT_PASSWORD: password
       TZ: Asia/Tokyo
