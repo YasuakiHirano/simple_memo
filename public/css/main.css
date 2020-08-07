@@ -38,33 +38,40 @@ body {
 
 #memo-title {
     white-space: nowrap;
-    height: 9%;
+    min-height: 2em;
     font-size: 1.8em;
 }
 
 #memo-content {
     box-sizing: border-box;
-    height: 87%;
     font-size: 1.2em;
     resize: none;
     overflow-y: auto;
+    height: 85%;
+}
+
+#memo-content textarea{
+    height: 100%;
 }
 
 #memo-menu {
-    height: 3%;
+    min-height: 1em;
     width: 100%;
     font-size: 1.8em;
     text-align: right;
 }
 
 .left-memo-menu {
-    height: 5%;
+    min-height: 2em;
 }
 
 .left-memo-title {
-    height: 5%;
+    min-height: 2em;
 }
 
 .left-memo-list {
+    overflow-y: auto;
     height: 85%;
+    padding-bottom: 3em;
+    word-break: break-all;
 }

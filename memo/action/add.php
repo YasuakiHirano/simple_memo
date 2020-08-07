@@ -11,13 +11,7 @@
     $database_handler = getDatabaseConnection();
 
     try {
-        if ($statement = $database_handler->prepare("SELECT max(id) as last_id FROM memos")) {
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-            $result['last_id']++;
-        }
-
-        $title = "無題{$result['last_id']}";
+        $title = "新規メモ";
         if ($statement = $database_handler->prepare("INSERT INTO memos (user_id, title, content) VALUES(:user_id, :title, null)")) {
             $statement->bindParam(":user_id", $user_id);
             $statement->bindParam(":title", $title);

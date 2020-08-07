@@ -35,11 +35,11 @@
         include_once "../common/header.php";
         echo getHeader("メモ投稿");
     ?>
-    <body class="p-3">
-        <div class="bg-white h-100 rounded shadow">
+    <body class="bg-white">
+        <div class="h-100">
             <div class="row h-100 m-0 p-0">
                 <div class="col-3 h-100 m-0 p-0 border-left border-right border-gray">
-                    <div class="left-memo-menu d-flex justify-content-between pt-1">
+                    <div class="left-memo-menu d-flex justify-content-between pt-2">
                         <div class="pl-3 pt-2">
                             <?php echo $user_name; ?>さん、こんにちは。
                         </div>
@@ -51,7 +51,7 @@
                     <div class="left-memo-title h3 pl-3 pt-3">
                         メモリスト
                     </div>
-                    <div class="left-memo-list list-group-flush p-0 overflow-auto">
+                    <div class="left-memo-list list-group-flush p-0">
                         <?php if(empty($memos)): ?>
                             <div class="pl-3 pt-3 h5 text-info text-center">
                                 <i class="far fa-surprise"></i>メモがありません。
