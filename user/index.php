@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    require '../common/auth.php';
+
+    if(isLogin()) {
+        header('Location: ../memo/');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="ja">                                                                                                                                                                    
     <?php
@@ -6,9 +15,19 @@
     ?>
     <body>
         <div class="d-flex align-items-center justify-content-center h-100">
-            <form method="post" action="../memo/">
+            <form method="post" action="./action/register.php">
                 <div class="card rounded login-card-width shadow">
                     <div class="card-body">
+                        <?php
+                        if (isset($_SESSION['errors'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            foreach ($_SESSION['errors'] as $error) {
+                                echo "<div>{$error}</div>";
+                            }
+                            echo '</div>';
+                            unset($_SESSION['errors']);
+                        }
+                        ?>
                         <div class="rounded-circle mx-auto border-gray border d-flex mt-3 icon-circle">
                             <img src="../public/images/animal_stand_zou.png" class="w-75 mx-auto p-2" alt="icon"/>
                         </div>
