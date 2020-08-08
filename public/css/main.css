@@ -1,0 +1,77 @@
+/*--全体共通--*/
+ html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: #d6f5eb;
+}
+
+/*--ログイン・ユーザー登録--*/
+.icon-circle {
+    width:10em;
+    height:10em;
+}
+
+.login-card-width {
+    width: 35em;
+    height: 38em;
+}
+
+.border-gray {
+    border-color: rgba(0,0,0,.180);
+}
+
+/*--メモ投稿画面--*/
+#memo-title, #memo-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#memo-title {
+    white-space: nowrap;
+    min-height: 2em;
+    font-size: 1.8em;
+}
+
+#memo-content {
+    box-sizing: border-box;
+    font-size: 1.2em;
+    resize: none;
+    overflow-y: auto;
+    height: 85%;
+}
+
+#memo-content textarea{
+    height: 100%;
+}
+
+#memo-menu {
+    min-height: 1em;
+    width: 100%;
+    font-size: 1.8em;
+    text-align: right;
+}
+
+.left-memo-menu {
+    min-height: 2em;
+}
+
+.left-memo-title {
+    min-height: 2em;
+}
+
+.left-memo-list {
+    overflow-y: auto;
+    height: 85%;
+    padding-bottom: 3em;
+    word-break: break-all;
+}
